@@ -1,0 +1,11 @@
+review,rating,category
+"The delivery was fast and the product is excellent",5,delivery
+"Really good quality, I love it",5,quality
+"Terrible experience, very poor support",1,support
+"The item was bad and delivery was slow",2,delivery
+"Average product, nothing special",3,quality
+"Amazing packaging and great service",5,service
+"Not happy, I hate the poor quality",1,quality
+"Works as expected",3,product
+"Excellent value for money",5,value
+"Awful experience but the staff were helpful",2,service
