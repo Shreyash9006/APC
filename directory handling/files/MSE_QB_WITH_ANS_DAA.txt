@@ -1,0 +1,3134 @@
+============================================================
+📘 DAA – UNIT 1: DIVIDE AND CONQUER
+COMPLETE MSE QUESTION BANK SOLUTIONS
+============================================================
+
+
+Q1. WHAT IS AN ALGORITHM? GIVE ITS CHARACTERISTICS.
+
+Answer:
+
+Definition:
+An algorithm is a finite sequence of well-defined and ordered
+instructions used to solve a particular problem or perform a
+computation.
+
+In simple words, an algorithm tells us:
+Input → Processing Steps → Output
+
+Example:
+Algorithm to find the sum of two numbers:
+
+Step 1: Start
+Step 2: Read A and B
+Step 3: S = A + B
+Step 4: Display S
+Step 5: Stop
+
+Characteristics of an Algorithm:
+
+1. Input:
+   An algorithm accepts zero or more inputs.
+
+2. Output:
+   An algorithm produces at least one output.
+
+3. Definiteness:
+   Every instruction must be clear and unambiguous.
+
+4. Finiteness:
+   The algorithm must terminate after a finite number of steps.
+
+5. Effectiveness:
+   Each instruction should be simple and executable in finite time.
+
+6. Correctness:
+   The algorithm should produce the correct result for valid input.
+
+7. Generality:
+   An algorithm should solve all instances of a particular problem.
+
+Conclusion:
+Thus, an algorithm is a step-by-step finite procedure that converts
+input into the required output.
+
+Keywords:
+Input, Output, Definiteness, Finiteness, Effectiveness, Correctness.
+
+
+============================================================
+Q2. EXPLAIN DIFFERENT ASYMPTOTIC NOTATIONS.
+============================================================
+
+Answer:
+
+Asymptotic notations are mathematical tools used to describe the
+growth rate of an algorithm's time or space complexity as the input
+size n becomes very large.
+
+The main asymptotic notations are:
+
+1. Big-O Notation O
+
+Big-O notation represents the upper bound or worst-case growth of
+an algorithm.
+
+Definition:
+f(n) = O(g(n)) if there exist positive constants c and n0 such that:
+
+0 ≤ f(n) ≤ c.g(n), for all n ≥ n0
+
+Example:
+3n² + 2n + 1 = O(n²)
+
+This is because, for large n, the term n² dominates the other terms.
+
+Example:
+Linear Search worst case = O(n)
+
+
+2. Big-Omega Notation Ω
+
+Big-Omega notation represents the lower bound or best-case growth of
+an algorithm.
+
+Definition:
+f(n) = Ω(g(n)) if there exist positive constants c and n0 such that:
+
+0 ≤ c.g(n) ≤ f(n), for all n ≥ n0
+
+Example:
+3n² + 2n + 1 = Ω(n²)
+
+Example:
+Linear Search best case = Ω(1)
+
+
+3. Big-Theta Notation Θ
+
+Theta notation represents a tight bound.
+
+It means that the function grows at the same order as another function.
+
+Definition:
+f(n) = Θ(g(n)) if there exist positive constants c1, c2 and n0 such
+that:
+
+0 ≤ c1.g(n) ≤ f(n) ≤ c2.g(n)
+
+for all n ≥ n0.
+
+Example:
+3n² + 2n + 1 = Θ(n²)
+
+
+Comparison:
+
+O(g(n))  → Upper bound
+Ω(g(n))  → Lower bound
+Θ(g(n))  → Tight bound
+
+Conclusion:
+Asymptotic notations help us compare algorithms without depending on
+specific hardware or programming language.
+
+
+============================================================
+Q3. EXPLAIN PERFORMANCE ANALYSIS AND PERFORMANCE MEASUREMENT.
+============================================================
+
+Answer:
+
+The efficiency of an algorithm is evaluated using performance
+analysis and performance measurement.
+
+1. Performance Analysis:
+
+Performance analysis is a theoretical method of determining the
+efficiency of an algorithm.
+
+It mainly considers:
+
+a) Time Complexity:
+The amount of time required by an algorithm as a function of input
+size n.
+
+b) Space Complexity:
+The amount of memory required by an algorithm as a function of input
+size n.
+
+The analysis is generally independent of:
+- Computer hardware
+- Programming language
+- Operating system
+
+Example:
+Binary Search has time complexity:
+
+Best case  = O(1)
+Worst case = O(log n)
+
+
+2. Performance Measurement:
+
+Performance measurement is an experimental method of evaluating an
+algorithm by actually implementing and executing it.
+
+It measures:
+- Actual execution time
+- Memory used
+- CPU utilization
+
+The result may depend on:
+- Processor speed
+- Programming language
+- Compiler
+- Operating system
+- Input data
+
+
+Difference:
+
+Performance Analysis:
+- Theoretical
+- Machine independent
+- Uses mathematical analysis
+- Gives complexity
+
+Performance Measurement:
+- Experimental
+- Machine dependent
+- Requires implementation
+- Gives actual execution time
+
+
+Conclusion:
+Performance analysis predicts the efficiency of an algorithm
+theoretically, whereas performance measurement evaluates its actual
+performance on a computer system.
+
+
+============================================================
+Q4. EXPLAIN TOWER OF HANOI PROBLEM AND ANALYZE ITS COMPLEXITY.
+============================================================
+
+Answer:
+
+Tower of Hanoi is a classical recursive problem consisting of:
+
+- Three rods
+- n disks of different sizes
+
+Initially, all disks are placed on the source rod in increasing size
+from top to bottom.
+
+Objective:
+Move all disks from the source rod to the destination rod using an
+auxiliary rod.
+
+Rules:
+
+1. Only one disk can be moved at a time.
+2. A larger disk cannot be placed on a smaller disk.
+3. Only the top disk of a rod can be moved.
+
+
+Algorithm:
+
+TOH(n, Source, Auxiliary, Destination)
+
+If n = 1:
+    Move disk 1 from Source to Destination
+
+Otherwise:
+    Move n-1 disks from Source to Auxiliary
+    Move nth disk from Source to Destination
+    Move n-1 disks from Auxiliary to Destination
+
+
+Pseudo Code:
+
+TOH(n, S, A, D)
+{
+    if(n == 1)
+    {
+        print "Move disk from S to D"
+        return
+    }
+
+    TOH(n-1, S, D, A)
+
+    print "Move disk", n, "from S to D"
+
+    TOH(n-1, A, S, D)
+}
+
+
+Recurrence Relation:
+
+T(n) = 2T(n-1) + 1
+
+Where:
+2T(n-1) represents moving n-1 disks two times.
+1 represents moving the largest disk.
+
+Solving:
+
+T(n) = 2ⁿ - 1
+
+Therefore:
+
+Time Complexity = O(2ⁿ)
+
+Space Complexity = O(n)
+because recursive calls use stack space.
+
+Conclusion:
+Tower of Hanoi is a recursive problem with exponential time
+complexity O(2ⁿ).
+
+
+============================================================
+Q5. COMPARE THE COMPLEXITIES:
+n, log n, n log n, n², n³ AND 2ⁿ
+============================================================
+
+Answer:
+
+The order of growth from smallest to largest is:
+
+log n < n < n log n < n² < n³ < 2ⁿ
+
+Explanation:
+
+1. O(log n):
+   Logarithmic growth.
+   Example: Binary Search.
+
+2. O(n):
+   Linear growth.
+   Example: Linear Search.
+
+3. O(n log n):
+   Linear-logarithmic growth.
+   Example: Merge Sort.
+
+4. O(n²):
+   Quadratic growth.
+   Example: Selection Sort.
+
+5. O(n³):
+   Cubic growth.
+   Example: Some matrix algorithms.
+
+6. O(2ⁿ):
+   Exponential growth.
+   Example: Tower of Hanoi.
+
+
+Growth Order:
+
+Best --------------------------------------> Worst
+
+log n → n → n log n → n² → n³ → 2ⁿ
+
+
+Example for large input:
+As n increases, exponential algorithms become extremely slow compared
+to polynomial algorithms.
+
+Conclusion:
+Algorithms having logarithmic or linear complexity are generally more
+efficient than quadratic, cubic and exponential algorithms.
+
+
+============================================================
+Q6. WRITE RECURSIVE AND ITERATIVE ALGORITHMS TO COMPUTE n!.
+============================================================
+
+Answer:
+
+Factorial of n is defined as:
+
+n! = n × (n-1) × (n-2) × ... × 1
+
+Also:
+
+0! = 1
+
+
+A) Recursive Algorithm:
+
+Factorial(n)
+{
+    if(n == 0 || n == 1)
+        return 1;
+
+    return n × Factorial(n-1);
+}
+
+
+Example:
+
+Factorial(5)
+
+= 5 × Factorial(4)
+= 5 × 4 × Factorial(3)
+= 5 × 4 × 3 × 2 × 1
+= 120
+
+
+Time Complexity:
+
+T(n) = T(n-1) + O(1)
+
+Therefore:
+
+Time Complexity = O(n)
+
+Space Complexity = O(n)
+due to recursive stack.
+
+
+B) Iterative Algorithm:
+
+Factorial(n)
+{
+    fact = 1;
+
+    for(i = 1; i <= n; i++)
+        fact = fact × i;
+
+    return fact;
+}
+
+
+Example:
+
+n = 5
+
+fact = 1 × 2 × 3 × 4 × 5
+     = 120
+
+
+Complexity:
+
+Time Complexity = O(n)
+
+Space Complexity = O(1)
+
+
+Conclusion:
+
+Both algorithms require O(n) time.
+
+Recursive method:
+Easy to understand but uses extra stack memory.
+
+Iterative method:
+Uses constant extra space.
+
+
+============================================================
+Q7. WRITE RECURSIVE AND ITERATIVE ALGORITHMS TO COMPUTE
+FIBONACCI NUMBERS.
+============================================================
+
+Answer:
+
+The Fibonacci sequence is:
+
+0, 1, 1, 2, 3, 5, 8, 13, ...
+
+The recurrence relation is:
+
+F(n) = F(n-1) + F(n-2)
+
+with:
+
+F(0) = 0
+F(1) = 1
+
+
+A) Recursive Algorithm:
+
+Fibonacci(n)
+{
+    if(n == 0)
+        return 0;
+
+    if(n == 1)
+        return 1;
+
+    return Fibonacci(n-1) + Fibonacci(n-2);
+}
+
+
+Example:
+
+F(5)
+
+= F(4) + F(3)
+= 3 + 2
+= 5
+
+
+Complexity:
+
+The recursive algorithm repeatedly calculates the same values.
+
+Time Complexity ≈ O(2ⁿ)
+
+Space Complexity = O(n)
+
+
+B) Iterative Algorithm:
+
+Fibonacci(n)
+{
+    a = 0;
+    b = 1;
+
+    if(n == 0)
+        return 0;
+
+    for(i = 2; i <= n; i++)
+    {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    return b;
+}
+
+
+Example:
+
+a = 0
+b = 1
+
+Next values:
+
+1, 2, 3, 5
+
+Therefore:
+
+F(5) = 5
+
+
+Complexity:
+
+Time Complexity = O(n)
+
+Space Complexity = O(1)
+
+
+Conclusion:
+
+The iterative Fibonacci algorithm is more efficient than the simple
+recursive algorithm because it avoids repeated calculations.
+
+
+============================================================
+Q8. EXPLAIN DIVIDE AND CONQUER ALGORITHM WITH RECURRENCE RELATION.
+============================================================
+
+Answer:
+
+Divide and Conquer is an algorithm design technique in which a large
+problem is divided into smaller subproblems.
+
+The solutions of smaller subproblems are then combined to obtain the
+solution of the original problem.
+
+
+Three Steps:
+
+1. Divide:
+   Divide the problem into smaller subproblems.
+
+2. Conquer:
+   Solve each subproblem recursively.
+
+3. Combine:
+   Combine the solutions of subproblems.
+
+
+General Form:
+
+Divide
+   ↓
+Solve smaller subproblems
+   ↓
+Combine solutions
+
+
+General Algorithm:
+
+DivideAndConquer(P)
+{
+    if(P is small)
+        solve P directly;
+    else
+    {
+        divide P into smaller subproblems;
+        solve each subproblem recursively;
+        combine the solutions;
+    }
+}
+
+
+Recurrence Relation:
+
+If a problem of size n is divided into a subproblems, each of size n/b,
+then:
+
+T(n) = aT(n/b) + f(n)
+
+Where:
+
+a = Number of subproblems
+n/b = Size of each subproblem
+f(n) = Cost of dividing and combining
+
+
+Examples:
+
+Binary Search:
+T(n) = T(n/2) + O(1)
+
+Merge Sort:
+T(n) = 2T(n/2) + O(n)
+
+Quick Sort:
+Average:
+T(n) = 2T(n/2) + O(n)
+
+
+Applications:
+- Binary Search
+- Merge Sort
+- Quick Sort
+- Maximum and Minimum
+
+Conclusion:
+Divide and Conquer solves complex problems efficiently by breaking them
+into smaller and manageable subproblems.
+
+
+============================================================
+Q9. SHOW THAT NUMBER OF COMPARISONS FOR FINDING MAXIMUM AND
+MINIMUM IS 3n/2 - 2.
+============================================================
+
+Answer:
+
+To find both maximum and minimum separately:
+
+For Maximum:
+n - 1 comparisons
+
+For Minimum:
+n - 1 comparisons
+
+Total:
+
+2n - 2 comparisons
+
+
+Using Divide and Conquer Pair Method:
+
+Assume n is even.
+
+Step 1:
+Compare elements in pairs.
+
+Number of pairs = n/2
+
+Therefore:
+
+n/2 comparisons
+
+
+For each pair:
+- Larger element is a candidate for maximum.
+- Smaller element is a candidate for minimum.
+
+
+Step 2:
+Find maximum among n/2 larger elements.
+
+Comparisons:
+
+n/2 - 1
+
+
+Step 3:
+Find minimum among n/2 smaller elements.
+
+Comparisons:
+
+n/2 - 1
+
+
+Total Comparisons:
+
+= n/2 + (n/2 - 1) + (n/2 - 1)
+
+= n/2 + n/2 - 1 + n/2 - 1
+
+= 3n/2 - 2
+
+
+Therefore:
+
+Number of comparisons = 3n/2 - 2
+
+
+Conclusion:
+
+The pairwise Divide and Conquer method requires fewer comparisons than
+the straightforward method.
+
+Straightforward method:
+2n - 2
+
+Improved method:
+3n/2 - 2
+
+
+============================================================
+Q10. EXPLAIN RECURSIVE BINARY SEARCH WITH AN EXAMPLE.
+============================================================
+
+Answer:
+
+Binary Search is a Divide and Conquer searching algorithm used to
+search an element in a sorted array.
+
+It repeatedly divides the search interval into two halves.
+
+
+Algorithm:
+
+BinarySearch(A, low, high, key)
+{
+    if(low > high)
+        return -1;
+
+    mid = (low + high) / 2;
+
+    if(A[mid] == key)
+        return mid;
+
+    else if(key < A[mid])
+        return BinarySearch(A, low, mid-1, key);
+
+    else
+        return BinarySearch(A, mid+1, high, key);
+}
+
+
+Example:
+
+Array:
+
+10, 20, 30, 40, 50, 60, 70
+
+Find key = 50
+
+Step 1:
+
+low = 0
+high = 6
+
+mid = (0 + 6)/2 = 3
+
+A[3] = 40
+
+Since 50 > 40, search right half.
+
+
+Step 2:
+
+low = 4
+high = 6
+
+mid = (4 + 6)/2 = 5
+
+A[5] = 60
+
+Since 50 < 60, search left half.
+
+
+Step 3:
+
+low = 4
+high = 4
+
+mid = 4
+
+A[4] = 50
+
+Therefore, key is found.
+
+
+Recurrence:
+
+T(n) = T(n/2) + O(1)
+
+
+Time Complexity:
+
+Best Case = O(1)
+
+Worst Case = O(log n)
+
+Space Complexity:
+
+Recursive Binary Search = O(log n)
+
+
+Conclusion:
+
+Binary Search is highly efficient for searching in sorted data.
+
+
+============================================================
+Q11. EXPLAIN MERGE SORT WITH EXAMPLE AND COMPLEXITY.
+============================================================
+
+Answer:
+
+Merge Sort is a Divide and Conquer sorting algorithm.
+
+It divides the array into two halves, recursively sorts both halves,
+and then merges them.
+
+
+Algorithm:
+
+MergeSort(A, low, high)
+{
+    if(low < high)
+    {
+        mid = (low + high)/2;
+
+        MergeSort(A, low, mid);
+        MergeSort(A, mid+1, high);
+
+        Merge(A, low, mid, high);
+    }
+}
+
+
+Example:
+
+Array:
+
+38, 27, 43, 3, 9, 82, 10
+
+
+Divide:
+
+[38,27,43,3] [9,82,10]
+
+Further divide until single elements:
+
+[38] [27] [43] [3] [9] [82] [10]
+
+
+Merge:
+
+[27,38]
+[3,43]
+
+Then:
+
+[3,27,38,43]
+
+Similarly:
+
+[9,10,82]
+
+
+Final Merge:
+
+[3,27,38,43] + [9,10,82]
+
+Final Sorted Array:
+
+3, 9, 10, 27, 38, 43, 82
+
+
+Complexity Analysis:
+
+The array is divided into two parts:
+
+2T(n/2)
+
+Merging requires:
+
+O(n)
+
+Therefore:
+
+T(n) = 2T(n/2) + O(n)
+
+Using recurrence analysis:
+
+T(n) = O(n log n)
+
+
+Best Case = O(n log n)
+Average Case = O(n log n)
+Worst Case = O(n log n)
+
+Space Complexity = O(n)
+
+
+Conclusion:
+
+Merge Sort guarantees O(n log n) time complexity but requires
+additional memory for merging.
+
+
+============================================================
+Q12. EXPLAIN QUICK SORT WITH EXAMPLE AND COMPLEXITY.
+============================================================
+
+Answer:
+
+Quick Sort is a Divide and Conquer sorting algorithm.
+
+It selects an element called a pivot and partitions the remaining
+elements into:
+
+- Elements smaller than the pivot
+- Elements greater than the pivot
+
+The subarrays are then sorted recursively.
+
+
+Algorithm:
+
+QuickSort(A, low, high)
+{
+    if(low < high)
+    {
+        p = Partition(A, low, high);
+
+        QuickSort(A, low, p-1);
+        QuickSort(A, p+1, high);
+    }
+}
+
+
+Example:
+
+Array:
+
+40, 20, 60, 10, 50, 30
+
+Choose pivot = 40
+
+Partition:
+
+Smaller than 40:
+20, 10, 30
+
+Pivot:
+40
+
+Greater than 40:
+60, 50
+
+
+Therefore:
+
+20, 10, 30 | 40 | 60, 50
+
+Sort subarrays:
+
+10, 20, 30 | 40 | 50, 60
+
+
+Final Answer:
+
+10, 20, 30, 40, 50, 60
+
+
+Complexity:
+
+Best Case:
+
+Balanced partition:
+
+T(n) = 2T(n/2) + O(n)
+
+Therefore:
+
+O(n log n)
+
+
+Average Case:
+
+O(n log n)
+
+
+Worst Case:
+
+When partition is highly unbalanced:
+
+T(n) = T(n-1) + O(n)
+
+Therefore:
+
+O(n²)
+
+
+Space Complexity:
+
+Average = O(log n) for recursion
+
+
+Conclusion:
+
+Quick Sort is very efficient in practice. Its average complexity is
+O(n log n), although the worst-case complexity is O(n²).
+
+
+============================================================
+Q13. EXPLAIN DC SELECTION ALGORITHM / k-th SMALLEST ELEMENT.
+============================================================
+
+Answer:
+
+The selection problem is used to find the k-th smallest element from a
+set of n elements.
+
+Example:
+
+A = {7, 2, 9, 4, 1}
+
+Sorted order:
+
+1, 2, 4, 7, 9
+
+If k = 3:
+
+The 3rd smallest element is 4.
+
+
+Using Divide and Conquer:
+
+1. Select a pivot.
+2. Partition the elements into:
+   - Smaller elements
+   - Pivot
+   - Larger elements
+3. Determine the rank of the pivot.
+4. If pivot rank = k, return pivot.
+5. If k is smaller, search left part.
+6. Otherwise search right part.
+
+
+Algorithm:
+
+Select(A, low, high, k)
+{
+    partition the array around a pivot;
+
+    p = position of pivot;
+
+    if(p == k)
+        return A[p];
+
+    else if(k < p)
+        search left subarray;
+
+    else
+        search right subarray;
+}
+
+
+Complexity:
+
+Average Case = O(n)
+
+Worst Case = O(n²) for poor pivot selection.
+
+Conclusion:
+
+The Divide and Conquer selection method finds the required k-th
+smallest element without completely sorting the array.
+
+
+============================================================
+Q14. EXPLAIN SELECTION SORT AND SHOW ITS COMPLEXITY IS O(n²).
+============================================================
+
+Note:
+Selection Sort appears in your QB, although it is not explicitly named
+in the Unit 1 syllabus you shared.
+
+Answer:
+
+Selection Sort repeatedly selects the smallest element from the
+unsorted part of the array and places it in the correct position.
+
+
+Algorithm:
+
+SelectionSort(A, n)
+{
+    for(i = 0; i < n-1; i++)
+    {
+        min = i;
+
+        for(j = i+1; j < n; j++)
+        {
+            if(A[j] < A[min])
+                min = j;
+        }
+
+        swap(A[i], A[min]);
+    }
+}
+
+
+Example:
+
+Array:
+
+64, 25, 12, 22, 11
+
+Pass 1:
+
+11, 25, 12, 22, 64
+
+Pass 2:
+
+11, 12, 25, 22, 64
+
+Pass 3:
+
+11, 12, 22, 25, 64
+
+Pass 4:
+
+11, 12, 22, 25, 64
+
+
+Number of comparisons:
+
+(n-1) + (n-2) + ... + 1
+
+= n(n-1)/2
+
+Therefore:
+
+Time Complexity = O(n²)
+
+Best Case = O(n²)
+Average Case = O(n²)
+Worst Case = O(n²)
+
+Space Complexity = O(1)
+
+
+============================================================
+Q15. EXPLAIN ALGORITHM SPECIFICATION.
+============================================================
+
+Answer:
+
+Algorithm specification is a precise description of an algorithm that
+clearly defines:
+
+- Input
+- Output
+- Processing steps
+- Conditions
+- Termination
+
+An algorithm can be specified using:
+
+1. Natural Language
+2. Flowcharts
+3. Pseudocode
+4. Programming Language
+
+
+Example:
+
+Algorithm to find maximum of two numbers:
+
+Algorithm Max(A, B)
+
+Input:
+Two numbers A and B
+
+Output:
+Maximum value
+
+Steps:
+
+1. Start
+2. If A > B, return A
+3. Otherwise, return B
+4. Stop
+
+
+A good algorithm specification should be:
+
+- Clear
+- Unambiguous
+- Finite
+- Correct
+- Easy to understand
+
+
+============================================================
+Q16. EXPLAIN RANDOMIZED ALGORITHMS.
+============================================================
+
+Answer:
+
+A randomized algorithm uses random values or random choices during
+its execution.
+
+Therefore, the algorithm may behave differently for the same input on
+different executions.
+
+
+Example:
+
+Randomized Quick Sort
+
+Instead of always selecting the first or last element as a pivot, a
+random element is selected as the pivot.
+
+
+Advantages:
+
+1. Reduces the chance of consistently poor input cases.
+2. Often gives good average performance.
+3. Simple to implement.
+
+
+Example:
+
+In Quick Sort:
+
+Normal Quick Sort:
+Pivot may always be first element.
+
+Randomized Quick Sort:
+Pivot is selected randomly.
+
+
+Conclusion:
+
+Randomized algorithms use randomness to improve expected performance
+and reduce the probability of worst-case behaviour.
+
+
+============================================================
+Q17. EXPLAIN ANALYSIS OF DIVIDE AND CONQUER ALGORITHMS.
+============================================================
+
+Answer:
+
+The performance of a Divide and Conquer algorithm is generally
+analyzed using a recurrence relation.
+
+General Form:
+
+T(n) = aT(n/b) + f(n)
+
+Where:
+
+a = Number of subproblems
+
+n/b = Size of each subproblem
+
+f(n) = Time required for dividing and combining
+
+
+Example 1: Binary Search
+
+One subproblem of size n/2:
+
+T(n) = T(n/2) + O(1)
+
+Therefore:
+
+T(n) = O(log n)
+
+
+Example 2: Merge Sort
+
+Two subproblems of size n/2:
+
+T(n) = 2T(n/2) + O(n)
+
+Therefore:
+
+T(n) = O(n log n)
+
+
+Steps in Analysis:
+
+1. Identify problem size n.
+2. Identify number of subproblems.
+3. Determine size of subproblems.
+4. Calculate divide cost.
+5. Calculate combine cost.
+6. Form recurrence relation.
+7. Solve recurrence to obtain complexity.
+
+
+Common Divide and Conquer Algorithms:
+
+Binary Search      → O(log n)
+Merge Sort         → O(n log n)
+Quick Sort         → Average O(n log n)
+Max-Min            → O(n)
+Tower of Hanoi     → O(2ⁿ)
+
+
+Conclusion:
+
+Divide and Conquer algorithms are analyzed mainly by recurrence
+relations, which represent the time required to solve smaller
+subproblems recursively.
+
+
+============================================================
+🔥 UNIT 1 – FINAL MSE MUST-STUDY PRIORITY
+============================================================
+
+TIER 1 – ABSOLUTELY MUST MASTER:
+
+1. Divide and Conquer
+2. Maximum and Minimum → 3n/2 - 2
+3. Recursive Binary Search
+4. Merge Sort + Complexity
+5. Quick Sort + Complexity
+6. Asymptotic Notations
+7. Performance Analysis
+8. Tower of Hanoi + Complexity
+
+TIER 2:
+
+9. Algorithm + Characteristics
+10. Recursive vs Iterative Factorial
+11. Recursive vs Iterative Fibonacci
+12. DC Selection Algorithm
+
+TIER 3:
+
+13. Randomized Algorithms
+14. Algorithm Specification
+15. Selection Sort
+
+============================================================
+📌 EXAM WRITING FORMULA
+============================================================
+
+For every algorithm question write:
+
+1. Definition / Introduction
+2. Algorithm / Pseudocode
+3. Diagram or Example
+4. Dry Run
+5. Recurrence Relation (if applicable)
+6. Time Complexity
+7. Space Complexity
+8. Conclusion
+
+This format gives the maximum chance of scoring full marks.
+============================================================
+
+============================================================
+📘 DAA – UNIT 2: THE GREEDY METHOD
+COMPLETE MSE QUESTION BANK SOLUTIONS
+============================================================
+
+
+Q1. WRITE A SHORT NOTE ON THE GREEDY METHOD / GENERAL METHOD.
+============================================================
+
+Answer:
+
+The Greedy Method is an algorithm design technique in which a solution
+is constructed step by step by making the best possible choice at each
+stage.
+
+The choice made at a particular stage is called a local optimum.
+The objective is to obtain an overall optimal solution.
+
+General Strategy:
+
+1. Start with an empty solution.
+2. Select the best available candidate.
+3. Check whether the candidate gives a feasible solution.
+4. If feasible, include it in the solution.
+5. Repeat until the solution is complete.
+
+General Algorithm:
+
+Greedy(A)
+{
+    Solution = empty;
+
+    while(Solution is not complete)
+    {
+        Select the best candidate;
+
+        if(candidate is feasible)
+            add candidate to Solution;
+    }
+
+    return Solution;
+}
+
+Characteristics:
+
+1. Greedy Choice Property:
+   A globally optimal solution can be obtained by making locally
+   optimal choices.
+
+2. Optimal Substructure:
+   An optimal solution contains optimal solutions to its subproblems.
+
+Advantages:
+- Simple to understand.
+- Usually easy to implement.
+- Often efficient.
+- Requires less computation.
+
+Applications:
+- Fractional Knapsack
+- Job Sequencing with Deadlines
+- Prim's Algorithm
+- Kruskal's Algorithm
+- Dijkstra's Algorithm
+- Optimal Merge Pattern
+
+Conclusion:
+Thus, the Greedy Method makes the best local choice at every step
+with the aim of obtaining a globally optimal solution.
+
+
+============================================================
+Q2. FIND AN OPTIMAL SOLUTION TO A KNAPSACK INSTANCE.
+============================================================
+
+Answer:
+
+The Knapsack Problem is solved using the Greedy Method when fractional
+items are allowed.
+
+Given:
+
+Profit = Pi
+Weight = Wi
+
+The selection criterion is:
+
+Profit / Weight ratio = Pi / Wi
+
+Steps:
+
+1. Calculate Pi/Wi for every item.
+2. Arrange items in decreasing order of Pi/Wi.
+3. Select items having the highest ratio first.
+4. If an entire item cannot fit, take the required fraction of it.
+
+Example:
+
+Let the knapsack capacity be W = 50.
+
+Item       Profit(P)       Weight(W)       P/W
+------------------------------------------------
+1             60               10            6
+2            100               20            5
+3            120               30            4
+
+Arrange in decreasing P/W ratio:
+
+Item 1 → Item 2 → Item 3
+
+Step 1:
+Take Item 1 completely.
+
+Weight = 10
+Profit = 60
+
+Remaining capacity = 40
+
+Step 2:
+Take Item 2 completely.
+
+Weight = 20
+Profit = 100
+
+Remaining capacity = 20
+
+Step 3:
+Item 3 has weight 30, but only 20 capacity remains.
+
+Take 20/30 = 2/3 of Item 3.
+
+Profit obtained:
+
+(2/3) × 120 = 80
+
+Therefore:
+
+Total Weight = 50
+
+Total Profit = 60 + 100 + 80
+             = 240
+
+Optimal Profit = 240
+
+Conclusion:
+For Fractional Knapsack, selecting items according to decreasing
+Profit/Weight ratio gives the optimal solution.
+
+
+============================================================
+Q3. PROVE THAT GREEDY METHOD GENERATES AN OPTIMAL SOLUTION
+FOR THE KNAPSACK PROBLEM.
+============================================================
+
+Answer:
+
+Consider n items having:
+
+Profit: P1, P2, ..., Pn
+
+Weight: W1, W2, ..., Wn
+
+Assume that the items are arranged such that:
+
+P1/W1 ≥ P2/W2 ≥ ... ≥ Pn/Wn
+
+The ratio Pi/Wi represents the profit obtained per unit weight.
+
+Greedy Strategy:
+
+At each step, select the item having the maximum Profit/Weight ratio.
+
+Suppose an optimal solution does not select the item with the highest
+ratio first and instead selects an item having a lower ratio.
+
+Let:
+
+P1/W1 > P2/W2
+
+Then, for the same amount of weight, Item 1 produces more profit than
+Item 2.
+
+Therefore, replacing some weight of Item 2 with Item 1 increases or
+maintains the total profit.
+
+Hence, an optimal solution can always be transformed into one that
+contains the highest Profit/Weight ratio item first.
+
+Applying the same argument repeatedly to the remaining capacity,
+the items are selected in decreasing order of Profit/Weight ratio.
+
+Therefore:
+
+If
+
+P1/W1 ≥ P2/W2 ≥ ... ≥ Pn/Wn
+
+then the Greedy Method produces an optimal solution for the
+Fractional Knapsack Problem.
+
+Important Note:
+
+This proof is valid for the Fractional Knapsack Problem, where an item
+can be divided.
+
+It is not generally valid for the 0/1 Knapsack Problem.
+
+
+============================================================
+Q4. DEFINE SPANNING TREE WITH A SUITABLE EXAMPLE.
+============================================================
+
+Answer:
+
+A Spanning Tree of a connected graph is a subgraph that:
+
+1. Contains all vertices of the original graph.
+2. Is connected.
+3. Contains no cycle.
+
+If a connected graph contains n vertices, then every spanning tree
+contains exactly:
+
+n - 1 edges.
+
+Example:
+
+Consider vertices:
+
+A, B, C, D
+
+A possible graph has edges:
+
+A-B, A-C, B-C, B-D
+
+One spanning tree is:
+
+A-B
+A-C
+B-D
+
+It contains:
+
+Number of vertices = 4
+
+Number of edges = 3 = n - 1
+
+There is no cycle and all vertices are connected.
+
+Conclusion:
+
+A spanning tree connects all vertices of a graph using the minimum
+number of edges without forming a cycle.
+
+
+============================================================
+Q5. GIVE AN ALGORITHM TO FIND MINIMUM COST SPANNING TREE.
+============================================================
+
+Answer:
+
+A Minimum Cost Spanning Tree (MCST) is a spanning tree whose total
+edge weight is minimum among all possible spanning trees.
+
+A weighted connected graph may have several spanning trees, but the
+MCST has minimum total cost.
+
+General Approach:
+
+1. Start with a graph having all vertices.
+2. Select edges according to minimum weight.
+3. Do not select an edge if it creates a cycle.
+4. Continue until n - 1 edges are selected.
+
+Algorithms used to find MCST:
+
+1. Prim's Algorithm
+2. Kruskal's Algorithm
+
+Basic Algorithm:
+
+MCST(G)
+{
+    T = empty set;
+
+    while(T contains fewer than n-1 edges)
+    {
+        select a minimum cost edge;
+
+        if(adding the edge does not form a cycle)
+            add edge to T;
+    }
+
+    return T;
+}
+
+Cost of MCST:
+
+Cost(T) = Sum of weights of all selected edges
+
+Conclusion:
+
+The objective of MCST algorithms is to connect every vertex with
+minimum possible total edge cost.
+
+
+============================================================
+Q6. EXPLAIN KRUSKAL'S ALGORITHM AND FIND MCST WITH EXAMPLE.
+============================================================
+
+Answer:
+
+Kruskal's Algorithm is a Greedy Algorithm used to find a Minimum Cost
+Spanning Tree of a connected weighted graph.
+
+The algorithm selects edges in increasing order of their weights.
+
+Algorithm:
+
+Kruskal(G)
+{
+    Sort all edges in increasing order of weight;
+
+    T = empty set;
+
+    for each edge e in sorted order
+    {
+        if(e does not form a cycle)
+            add e to T;
+
+        if(T contains n-1 edges)
+            break;
+    }
+
+    return T;
+}
+
+Example:
+
+Consider the following edges:
+
+Edge       Weight
+-----------------
+A-B          1
+B-C          2
+A-C          3
+C-D          4
+B-D          5
+
+Step 1:
+Sort edges:
+
+A-B(1), B-C(2), A-C(3), C-D(4), B-D(5)
+
+Step 2:
+Select A-B(1)
+
+Step 3:
+Select B-C(2)
+
+Step 4:
+A-C(3) creates a cycle.
+
+Therefore, reject it.
+
+Step 5:
+Select C-D(4)
+
+Now the number of selected edges = n - 1 = 3.
+
+Therefore:
+
+MCST = {A-B, B-C, C-D}
+
+Minimum Cost:
+
+= 1 + 2 + 4
+= 7
+
+Time Complexity:
+
+Sorting edges = O(E log E)
+
+Therefore:
+
+Time Complexity = O(E log E)
+
+Conclusion:
+
+Kruskal's Algorithm selects the minimum-weight edges while avoiding
+cycles to construct the Minimum Cost Spanning Tree.
+
+
+============================================================
+Q7. EXPLAIN PRIM'S ALGORITHM WITH AN EXAMPLE.
+============================================================
+
+Answer:
+
+Prim's Algorithm is a Greedy Algorithm used to find a Minimum Cost
+Spanning Tree.
+
+Unlike Kruskal's Algorithm, Prim's Algorithm starts with a vertex and
+gradually grows a single tree.
+
+Algorithm:
+
+1. Select any starting vertex.
+2. Add it to the tree.
+3. Select the minimum-weight edge that connects a vertex in the tree
+   to a vertex outside the tree.
+4. Add the selected edge and vertex.
+5. Repeat until all vertices are included.
+
+Pseudo Code:
+
+Prim(G)
+{
+    Start with any vertex;
+
+    while(not all vertices are included)
+    {
+        select minimum weight edge connecting:
+        Tree vertex → Non-tree vertex;
+
+        add the edge to the tree;
+    }
+}
+
+Example:
+
+Edges:
+
+A-B = 1
+A-C = 3
+B-C = 2
+B-D = 4
+C-D = 5
+
+Start with A.
+
+Step 1:
+
+Select A-B = 1
+
+Tree:
+
+A --1-- B
+
+Step 2:
+
+Available minimum edge:
+
+B-C = 2
+
+Select B-C.
+
+Step 3:
+
+Available minimum edge:
+
+B-D = 4
+
+Select B-D.
+
+MCST edges:
+
+A-B = 1
+B-C = 2
+B-D = 4
+
+Minimum Cost:
+
+1 + 2 + 4 = 7
+
+Complexity:
+
+Using adjacency matrix:
+
+O(V²)
+
+Using priority queue:
+
+O(E log V)
+
+Conclusion:
+
+Prim's Algorithm constructs the MCST by continuously expanding one
+tree using the minimum-cost edge.
+
+
+============================================================
+Q8. EXPLAIN JOB SEQUENCING WITH DEADLINES.
+============================================================
+
+Answer:
+
+Job Sequencing with Deadlines is a Greedy Method problem in which each
+job requires one unit of time for completion.
+
+Each job has:
+
+1. Deadline
+2. Profit
+
+Objective:
+
+Schedule jobs so that:
+
+- Every selected job is completed before its deadline.
+- Total profit is maximum.
+
+Greedy Strategy:
+
+1. Arrange jobs in decreasing order of profit.
+2. Select the highest-profit job.
+3. Place it in the latest available slot before its deadline.
+4. Repeat for all jobs.
+
+Example:
+
+Job       Deadline       Profit
+--------------------------------
+J1            2            100
+J2            1             19
+J3            2             27
+J4            1             25
+J5            3             15
+
+Maximum deadline = 3.
+
+Available slots:
+
+1, 2, 3
+
+Sort according to profit:
+
+J1(100), J3(27), J4(25), J2(19), J5(15)
+
+Scheduling:
+
+J1 → Slot 2
+J3 → Slot 1
+J4 → Cannot be scheduled
+J2 → Cannot be scheduled
+J5 → Slot 3
+
+Final Schedule:
+
+Slot:       1      2      3
+Job:        J3     J1     J5
+
+Total Profit:
+
+27 + 100 + 15 = 142
+
+Conclusion:
+
+The Greedy Method maximizes profit by selecting high-profit jobs and
+placing them as late as possible before their deadlines.
+
+
+============================================================
+Q9. WRITE A SHORT NOTE ON OPTIMAL STORAGE ON TAPES.
+============================================================
+
+Answer:
+
+Optimal Storage on Tapes is a Greedy Method problem.
+
+In a tape, files are stored sequentially.
+
+To access a file, all files placed before it must be passed.
+
+Therefore, the order of files affects the average retrieval time.
+
+Objective:
+
+Arrange files so that the Mean Retrieval Time (MRT) is minimum.
+
+Greedy Rule:
+
+Arrange the files in non-decreasing order of their lengths.
+
+Example:
+
+File lengths:
+
+20, 5, 10
+
+Arrange in increasing order:
+
+5, 10, 20
+
+Retrieval Times:
+
+For File 1:
+
+RT1 = 5
+
+For File 2:
+
+RT2 = 5 + 10 = 15
+
+For File 3:
+
+RT3 = 5 + 10 + 20 = 35
+
+Total Retrieval Time:
+
+= 5 + 15 + 35
+= 55
+
+Mean Retrieval Time:
+
+MRT = 55/3
+    = 18.33
+
+Conclusion:
+
+The optimal arrangement of files on a tape is generally obtained by
+placing shorter files before longer files.
+
+
+============================================================
+Q10. FIND AN OPTIMAL BINARY MERGE PATTERN.
+============================================================
+
+Answer:
+
+The Optimal Merge Pattern is used to combine multiple sorted files
+with minimum total merge cost.
+
+Greedy Rule:
+
+Always merge the two smallest files first.
+
+Example:
+
+File sizes:
+
+5, 10, 20, 30
+
+Step 1:
+
+Merge 5 and 10:
+
+Cost = 15
+
+New files:
+
+15, 20, 30
+
+Step 2:
+
+Merge 15 and 20:
+
+Cost = 35
+
+New files:
+
+30, 35
+
+Step 3:
+
+Merge 30 and 35:
+
+Cost = 65
+
+Total Merge Cost:
+
+15 + 35 + 65
+= 115
+
+Therefore:
+
+Optimal Merge Cost = 115
+
+
+For a general problem:
+
+1. Arrange all file lengths in increasing order.
+2. Select the two smallest files.
+3. Merge them.
+4. Insert the merged file back.
+5. Repeat until one file remains.
+
+Conclusion:
+
+By always merging the two smallest files first, the total merge cost
+is minimized.
+
+
+============================================================
+Q11. SOLVE THE GIVEN OPTIMAL MERGE PATTERN PROBLEM:
+28, 32, 12, 5, 84, 53, 91, 35, 3
+============================================================
+
+Answer:
+
+Given file lengths:
+
+28, 32, 12, 5, 84, 53, 91, 35, 3
+
+Arrange in increasing order:
+
+3, 5, 12, 28, 32, 35, 53, 84, 91
+
+Step 1:
+
+3 + 5 = 8
+
+Files:
+
+8, 12, 28, 32, 35, 53, 84, 91
+
+Step 2:
+
+8 + 12 = 20
+
+Files:
+
+20, 28, 32, 35, 53, 84, 91
+
+Step 3:
+
+20 + 28 = 48
+
+Files:
+
+32, 35, 48, 53, 84, 91
+
+Step 4:
+
+32 + 35 = 67
+
+Files:
+
+48, 53, 67, 84, 91
+
+Step 5:
+
+48 + 53 = 101
+
+Files:
+
+67, 84, 91, 101
+
+Step 6:
+
+67 + 84 = 151
+
+Files:
+
+91, 101, 151
+
+Step 7:
+
+91 + 101 = 192
+
+Files:
+
+151, 192
+
+Step 8:
+
+151 + 192 = 343
+
+
+Total Merge Cost:
+
+= 8 + 20 + 48 + 67 + 101 + 151 + 192 + 343
+
+= 930
+
+Therefore:
+
+Minimum Total Merge Cost = 930
+
+
+============================================================
+Q12. WRITE A NOTE ON SINGLE SOURCE SHORTEST PATH ALGORITHM.
+============================================================
+
+Answer:
+
+The Single Source Shortest Path problem finds the shortest path from
+one source vertex to all other vertices in a weighted graph.
+
+A commonly used Greedy Algorithm is Dijkstra's Algorithm.
+
+Condition:
+
+Dijkstra's Algorithm works correctly when edge weights are
+non-negative.
+
+Algorithm:
+
+1. Assign distance 0 to the source vertex.
+2. Assign infinity to all other vertices.
+3. Select the unvisited vertex having minimum distance.
+4. Mark it as visited.
+5. Update distances of its adjacent vertices.
+6. Repeat until all vertices are visited.
+
+Relaxation:
+
+If:
+
+distance[u] + weight(u,v) < distance[v]
+
+Then update:
+
+distance[v] =
+distance[u] + weight(u,v)
+
+
+Pseudo Code:
+
+Dijkstra(G, source)
+{
+    Set distance[source] = 0;
+
+    Set distance of all other vertices = ∞;
+
+    while(unvisited vertices exist)
+    {
+        u = unvisited vertex with minimum distance;
+
+        mark u as visited;
+
+        for each neighbour v of u
+        {
+            if(distance[u] + weight(u,v) < distance[v])
+            {
+                distance[v] =
+                distance[u] + weight(u,v);
+            }
+        }
+    }
+}
+
+Example:
+
+Suppose:
+
+A → B = 4
+A → C = 1
+C → B = 2
+B → D = 1
+C → D = 5
+
+Source = A
+
+Shortest distances:
+
+A → C = 1
+
+A → C → B = 1 + 2 = 3
+
+A → C → B → D = 1 + 2 + 1 = 4
+
+Therefore:
+
+Vertex       Distance
+----------------------
+A              0
+B              3
+C              1
+D              4
+
+Conclusion:
+
+The Single Source Shortest Path algorithm finds minimum distances from
+one source to all other vertices.
+
+
+============================================================
+Q13. HUFFMAN CODING
+============================================================
+
+IMPORTANT:
+
+Huffman Coding appears in your Question Bank, but it is NOT explicitly
+mentioned in the Unit 2 syllabus you shared.
+
+If your teacher includes the complete Question Bank for MSE, prepare
+this question.
+
+Basic Method:
+
+1. Arrange symbols according to frequency.
+2. Select the two smallest frequencies.
+3. Combine them.
+4. Insert the combined frequency again.
+5. Repeat until a single tree is obtained.
+6. Assign 0 to one branch and 1 to another branch.
+
+Example frequencies:
+
+4, 5, 7, 8, 10, 12, 20
+
+Step 1:
+4 + 5 = 9
+
+Remaining:
+
+7, 8, 9, 10, 12, 20
+
+Step 2:
+7 + 8 = 15
+
+Remaining:
+
+9, 10, 12, 15, 20
+
+Step 3:
+9 + 10 = 19
+
+Remaining:
+
+12, 15, 19, 20
+
+Step 4:
+12 + 15 = 27
+
+Remaining:
+
+19, 20, 27
+
+Step 5:
+19 + 20 = 39
+
+Remaining:
+
+27, 39
+
+Step 6:
+27 + 39 = 66
+
+The Huffman tree is constructed using these combinations.
+
+Conclusion:
+
+Huffman Coding is a lossless compression technique that assigns
+shorter codes to high-frequency symbols and longer codes to
+low-frequency symbols.
+
+
+============================================================
+🔥 UNIT 2 – FINAL MSE MUST-STUDY PRIORITY
+============================================================
+
+TIER 1 – ABSOLUTELY MUST MASTER:
+
+1. Greedy Method
+2. Fractional Knapsack Numerical
+3. Knapsack Optimality Proof
+4. Kruskal's Algorithm + Numerical
+5. Prim's Algorithm + Numerical
+6. Job Sequencing with Deadlines
+7. Optimal Merge Pattern + Numerical
+8. Single Source Shortest Path
+
+TIER 2:
+
+9. Spanning Tree and MCST
+10. Optimal Storage on Tapes
+11. Huffman Coding
+
+============================================================
+📌 EXAM WRITING FORMULA FOR GREEDY NUMERICALS
+============================================================
+
+1. Write the given data in a table.
+2. Mention the Greedy Selection Rule.
+3. Sort/select according to that rule.
+4. Show every iteration/step.
+5. Write the final selected solution.
+6. Calculate Total Cost / Total Profit.
+7. Box the final answer.
+
+============================================================
+
+============================================================
+📘 DAA – UNIT 3: BACKTRACKING
+COMPLETE MSE QUESTION BANK SOLUTIONS
+============================================================
+
+UNIT 3 SYLLABUS:
+1. General Method of Backtracking
+2. 8-Queen Problem
+3. Sum of Subsets
+4. Knapsack Problem
+5. Hamiltonian Cycle
+6. Graph Coloring
+
+QB QUESTIONS COVERED:
+✓ Permutation Tree for 4-Queen
+✓ N-Queen Backtracking Algorithm
+✓ Hamiltonian Cycle
+✓ Graph Coloring
+✓ Live Node
+✓ E-Node
+✓ Dead Node
+✓ Bounding Function
+
+============================================================
+Q1. EXPLAIN THE GENERAL METHOD OF BACKTRACKING.
+============================================================
+
+Answer:
+
+Backtracking is an algorithm design technique used to solve problems
+by constructing a solution step by step.
+
+At each step, a possible choice is made. If the choice does not lead
+to a valid solution, the algorithm goes back and tries another choice.
+
+This process is called Backtracking.
+
+Simple Idea:
+
+Choose → Check → Continue
+          ↓
+       Invalid?
+          ↓
+        Go Back
+
+Backtracking generally uses a state-space tree.
+
+General Algorithm:
+
+Backtrack(k)
+{
+    if(k represents a complete solution)
+    {
+        output solution;
+        return;
+    }
+
+    for(each possible choice)
+    {
+        make a choice;
+
+        if(choice is promising)
+            Backtrack(k + 1);
+
+        undo the choice;
+    }
+}
+
+Important Terms:
+
+1. State Space Tree:
+   A tree representing all possible solutions.
+
+2. Promising Node:
+   A node that may lead to a valid solution.
+
+3. Non-promising Node:
+   A node that cannot lead to a valid solution.
+
+4. Backtracking:
+   Returning to a previous node when the current choice fails.
+
+Applications:
+
+- N-Queen Problem
+- Sum of Subsets
+- 0/1 Knapsack
+- Hamiltonian Cycle
+- Graph Coloring
+
+Conclusion:
+
+Backtracking systematically searches for a solution by exploring
+possible choices and abandoning invalid paths as early as possible.
+
+
+============================================================
+Q2. DRAW AND EXPLAIN A PERMUTATION TREE FOR THE 4-QUEEN PROBLEM.
+============================================================
+
+Answer:
+
+The 4-Queen Problem requires placing 4 queens on a 4 × 4 chessboard
+such that no two queens attack each other.
+
+Therefore:
+
+- No two queens should be in the same row.
+- No two queens should be in the same column.
+- No two queens should be on the same diagonal.
+
+In a permutation tree, each level represents the row number and each
+branch represents a possible column for placing a queen.
+
+Level 0:
+Root
+
+Level 1:
+Position of Queen 1
+
+Level 2:
+Position of Queen 2
+
+Level 3:
+Position of Queen 3
+
+Level 4:
+Position of Queen 4
+
+
+One possible solution is:
+
+Row 1 → Column 2
+Row 2 → Column 4
+Row 3 → Column 1
+Row 4 → Column 3
+
+
+Therefore, the solution can be represented as:
+
+[2, 4, 1, 3]
+
+
+Another solution is:
+
+[3, 1, 4, 2]
+
+
+Permutation Tree Concept:
+
+Root
+│
+├── Q1 at Column 1
+│   ├── Try possible positions for Q2
+│   │   └── Invalid branches are pruned
+│
+├── Q1 at Column 2
+│   └── Q2 at Column 4
+│       └── Q3 at Column 1
+│           └── Q4 at Column 3
+│               → SOLUTION
+│
+├── Q1 at Column 3
+│   └── Q2 at Column 1
+│       └── Q3 at Column 4
+│           └── Q4 at Column 2
+│               → SOLUTION
+│
+└── Q1 at Column 4
+    └── Invalid branches are pruned
+
+
+Important Point:
+
+The permutation tree represents possible arrangements of queens.
+
+Whenever two queens attack each other, that branch is not explored
+further.
+
+This is called pruning.
+
+
+Conclusion:
+
+The 4-Queen Problem uses a permutation/state-space tree to represent
+possible queen positions. Backtracking eliminates invalid branches and
+explores only promising solutions.
+
+
+============================================================
+Q3. EXPLAIN THE BACKTRACKING ALGORITHM FOR THE N-QUEEN PROBLEM.
+============================================================
+
+Answer:
+
+The N-Queen Problem is to place N queens on an N × N chessboard so
+that no two queens attack each other.
+
+Conditions:
+
+Two queens must not have the same:
+
+1. Row
+2. Column
+3. Diagonal
+
+
+Algorithm:
+
+The queens are placed row by row.
+
+For each row:
+
+1. Try every column.
+2. Check whether the position is safe.
+3. If safe, place the queen.
+4. Move to the next row.
+5. If no position is possible, remove the previous queen.
+6. Try another position.
+
+
+Pseudo Code:
+
+NQueen(row)
+{
+    if(row == N)
+    {
+        print solution;
+        return;
+    }
+
+    for(col = 0; col < N; col++)
+    {
+        if(isSafe(row, col))
+        {
+            place Queen at (row, col);
+
+            NQueen(row + 1);
+
+            remove Queen from (row, col);
+        }
+    }
+}
+
+
+Safety Conditions:
+
+A queen can be placed at position (row, col) if no queen exists:
+
+1. In the same column.
+2. On the left diagonal.
+3. On the right diagonal.
+
+
+Example:
+
+For 4 Queens:
+
+Solution 1:
+
+. Q . .
+. . . Q
+Q . . .
+. . Q .
+
+
+Representation:
+
+[2, 4, 1, 3]
+
+
+Solution 2:
+
+. . Q .
+Q . . .
+. . . Q
+. Q . .
+
+
+Representation:
+
+[3, 1, 4, 2]
+
+
+Complexity:
+
+Worst Case Time Complexity:
+
+O(N!)
+
+because many permutations may need to be explored.
+
+Conclusion:
+
+The N-Queen Problem is solved using Backtracking by placing queens
+one by one and returning to the previous position whenever a conflict
+occurs.
+
+
+============================================================
+Q4. EXPLAIN THE 8-QUEEN PROBLEM.
+============================================================
+
+Answer:
+
+The 8-Queen Problem is a special case of the N-Queen Problem.
+
+The objective is to place 8 queens on an 8 × 8 chessboard such that
+no two queens attack each other.
+
+A valid arrangement must satisfy:
+
+1. No two queens are in the same row.
+2. No two queens are in the same column.
+3. No two queens are on the same diagonal.
+
+Method:
+
+1. Place the first queen.
+2. Try placing the next queen in a safe position.
+3. Continue placing queens row by row.
+4. If a queen cannot be placed safely, backtrack.
+5. Change the previous queen's position.
+6. Continue until all 8 queens are placed.
+
+Conclusion:
+
+The 8-Queen Problem is a classical Backtracking problem where invalid
+partial solutions are rejected before exploring further.
+
+
+============================================================
+Q5. EXPLAIN THE SUM OF SUBSETS PROBLEM.
+============================================================
+
+Answer:
+
+The Sum of Subsets Problem is to determine whether a subset of a given
+set has a sum equal to a specified target value.
+
+Given:
+
+A set of positive numbers:
+
+W = {w1, w2, ..., wn}
+
+Target:
+
+M
+
+Find a subset such that:
+
+Σ wi = M
+
+
+Example:
+
+Set:
+
+{5, 10, 12, 13, 15, 18}
+
+Target = 30
+
+One solution is:
+
+5 + 10 + 15 = 30
+
+Backtracking Approach:
+
+For every element, there are two choices:
+
+1. Include the element.
+2. Exclude the element.
+
+If the partial sum exceeds the target, that branch is rejected.
+
+Algorithm:
+
+SumOfSubsets(i, weight, total)
+{
+    if(weight == target)
+    {
+        print solution;
+        return;
+    }
+
+    if(promising)
+    {
+        include wi;
+        SumOfSubsets(i+1, weight+wi, total-wi);
+
+        exclude wi;
+        SumOfSubsets(i+1, weight, total-wi);
+    }
+}
+
+
+
+
+State-Space Tree:
+
+At each level:
+
+                 Root
+                /    \
+             Include  Exclude
+               wi       wi
+
+The algorithm explores possible subsets and prunes branches that
+cannot reach the target.
+
+
+Conclusion:
+
+Backtracking efficiently solves the Sum of Subsets problem by
+eliminating unnecessary subset combinations.
+
+
+============================================================
+Q6. EXPLAIN THE KNAPSACK PROBLEM USING BACKTRACKING.
+============================================================
+
+Answer:
+
+In the 0/1 Knapsack Problem, each item has:
+
+- Weight Wi
+- Profit Pi
+
+A knapsack has capacity W.
+
+Each item has two choices:
+
+1. Include the item.
+2. Exclude the item.
+
+An item cannot be divided.
+
+Mathematical Form:
+
+Maximize:
+
+Σ PiXi
+
+Subject to:
+
+Σ WiXi ≤ W
+
+Where:
+
+Xi = 1, if item i is selected
+Xi = 0, if item i is not selected
+
+
+Backtracking Approach:
+
+At every item:
+
+Include item
+OR
+Exclude item
+
+If the weight exceeds the capacity, the branch is rejected.
+
+Pseudo Code:
+
+Knapsack(i, profit, weight)
+{
+    if(weight <= capacity && profit > maxProfit)
+        maxProfit = profit;
+
+    if(promising(i))
+    {
+        include item i;
+        Knapsack(i+1,
+                 profit + Pi,
+                 weight + Wi);
+
+        exclude item i;
+        Knapsack(i+1,
+                 profit,
+                 weight);
+    }
+}
+
+State-Space Tree:
+
+                 Root
+                /    \
+           Include    Exclude
+            Item 1    Item 1
+             /  \
+      Include   Exclude
+       Item 2    Item 2
+
+
+Conclusion:
+
+Backtracking solves the 0/1 Knapsack Problem by exploring inclusion
+and exclusion of items while pruning branches that cannot provide a
+valid or better solution.
+
+
+============================================================
+Q7. EXPLAIN HAMILTONIAN CYCLE WITH A SUITABLE EXAMPLE.
+============================================================
+
+Answer:
+
+A Hamiltonian Cycle is a cycle in a graph that visits every vertex
+exactly once and returns to the starting vertex.
+
+Example:
+
+Consider vertices:
+
+A, B, C, D
+
+If the graph contains edges:
+
+A-B
+B-C
+C-D
+D-A
+
+Then:
+
+A → B → C → D → A
+
+is a Hamiltonian Cycle.
+
+
+Backtracking Approach:
+
+1. Start from a selected vertex.
+2. Add an adjacent vertex to the path.
+3. Ensure that the vertex has not already been visited.
+4. Continue until all vertices are included.
+5. Check whether the last vertex is connected to the first vertex.
+6. If yes, a Hamiltonian Cycle exists.
+7. Otherwise, backtrack.
+
+
+Pseudo Code:
+
+Hamiltonian(k)
+{
+    while(true)
+    {
+        NextValue(k);
+
+        if(x[k] == 0)
+            return;
+
+        if(k == n)
+            print solution;
+        else
+            Hamiltonian(k+1);
+    }
+}
+
+
+Conditions for a Valid Vertex:
+
+A vertex can be selected if:
+
+1. It is adjacent to the previous vertex.
+2. It is not already included in the path.
+3. At the final step, it connects back to the starting vertex.
+
+
+Conclusion:
+
+A Hamiltonian Cycle visits every vertex exactly once and returns to
+the starting vertex. Backtracking is used to explore possible paths
+and reject invalid ones.
+
+
+============================================================
+Q8. EXPLAIN GRAPH COLORING PROBLEM USING BACKTRACKING.
+============================================================
+
+Answer:
+
+The Graph Coloring Problem is to assign colors to the vertices of a
+graph such that no two adjacent vertices have the same color.
+
+Given:
+
+- A graph G
+- m colors
+
+Objective:
+
+Color every vertex using at most m colors.
+
+
+Example:
+
+Suppose vertices are:
+
+A, B, C
+
+and all are connected to each other.
+
+Using 3 colors:
+
+A → Red
+B → Green
+C → Blue
+
+
+Backtracking Algorithm:
+
+1. Start with the first vertex.
+2. Assign one of the available colors.
+3. Check whether the color conflicts with an adjacent vertex.
+4. If no conflict occurs, move to the next vertex.
+5. If no color is possible, backtrack.
+
+
+Pseudo Code:
+
+GraphColoring(vertex)
+{
+    if(vertex == numberOfVertices)
+    {
+        print solution;
+        return;
+    }
+
+    for(color = 1; color <= m; color++)
+    {
+        if(isSafe(vertex, color))
+        {
+            assign color;
+
+            GraphColoring(vertex + 1);
+
+            remove color;
+        }
+    }
+}
+
+
+
+Safe Condition:
+
+A color can be assigned to a vertex if none of its adjacent vertices
+has the same color.
+
+
+Applications:
+
+- Timetable scheduling
+- Register allocation
+- Map coloring
+- Frequency assignment
+
+
+Conclusion:
+
+Graph Coloring using Backtracking assigns colors systematically and
+changes previous assignments whenever a valid coloring cannot be
+obtained.
+
+
+============================================================
+Q9. EXPLAIN LIVE NODE, E-NODE, DEAD NODE AND BOUNDING FUNCTION.
+============================================================
+
+Answer:
+
+These terms are generally associated with state-space tree search
+and Branch and Bound. They appear in your Question Bank.
+
+1. Live Node:
+
+A live node is a node that has been generated but has not yet been
+expanded.
+
+It is still a candidate for further exploration.
+
+Example:
+
+A partially constructed solution waiting to be explored.
+
+
+2. E-Node:
+
+E-Node means Expansion Node.
+
+It is the live node currently selected for expansion.
+
+When an E-Node is expanded, its child nodes are generated.
+
+
+3. Dead Node:
+
+A dead node is a node that will not be expanded further.
+
+A node may become dead when:
+
+- It represents a complete solution.
+- It cannot lead to a solution.
+- Its branch is pruned.
+
+
+4. Bounding Function:
+
+A bounding function is used to estimate the best possible value that
+can be obtained from a node.
+
+It helps decide whether the node should be explored further.
+
+If the bound shows that the node cannot produce a better solution,
+the branch is discarded.
+
+
+Example:
+
+For a maximization problem:
+
+If:
+
+Upper Bound of current node
+<
+Current Best Solution
+
+then the node can be pruned.
+
+
+Simple Relationship:
+
+Live Node
+    ↓
+Selected for expansion
+    ↓
+E-Node
+    ↓
+Generate child nodes
+    ↓
+Useful nodes → Live Nodes
+
+Unpromising/Completed nodes → Dead Nodes
+
+
+Conclusion:
+
+These concepts help reduce unnecessary exploration of the state-space
+tree and improve the efficiency of search algorithms.
+
+
+============================================================
+🔥 UNIT 3 – FINAL MSE MUST-STUDY PRIORITY
+============================================================
+
+TIER 1 – ABSOLUTELY MUST MASTER:
+
+1. General Method of Backtracking
+2. N-Queen Algorithm
+3. 4-Queen Permutation Tree
+4. Hamiltonian Cycle
+5. Graph Coloring using Backtracking
+
+TIER 2:
+
+6. 8-Queen Problem
+7. Sum of Subsets
+8. 0/1 Knapsack using Backtracking
+
+TIER 3 – QB EXTRA:
+
+9. Live Node
+10. E-Node
+11. Dead Node
+12. Bounding Function
+
+
+============================================================
+📌 EXAM WRITING FORMULA FOR BACKTRACKING QUESTIONS
+============================================================
+
+For 7 or 10 marks, write:
+
+1. Definition
+2. Problem Statement
+3. State-Space Tree / Diagram
+4. Algorithm or Pseudocode
+5. Working / Example
+6. Complexity
+7. Applications
+8. Conclusion
+
+============================================================
+
