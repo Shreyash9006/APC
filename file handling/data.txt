@@ -1,0 +1,5 @@
+shreyash,12,12,shreyash
+shreyash,20,9860629006,shreyash
+shreyash,12,121346,shreyash@9006.gmail
+shreyash,23,123,123
+python -u "d:\Shreyash\lab\file handling\main.py",shreyash,1234,shreyash@9006
